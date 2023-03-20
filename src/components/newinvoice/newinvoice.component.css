@@ -1,0 +1,46 @@
+.form-container {
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 24px;
+}
+
+label {
+    left: 0;
+    width: 100%;
+}
+
+.form-field {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+input {
+    width: 100%;
+    right: 0;
+    height: 24px;
+}
+
+button {
+    background-color: #1e72fa;
+    margin-top: 16px;
+    font-size: 24px;
+    min-height: 24px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+a {
+    right: 20%;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 16px;
+    font-size: 24px;
+    min-height: 24px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: #1e72fa
+}

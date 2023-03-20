@@ -1,0 +1,26 @@
+<div class="form-container">
+    <h1>Create new invoice</h1>
+    <form #useForm="ngForm">
+        
+        <div class="form-field">
+            <label >Item</label>
+            <input name="item" [(ngModel)]="newinvoice.item">
+        </div>
+        
+        <div class="form-field">
+            <label>Purpose</label>
+            <input name="purpose" [(ngModel)]="newinvoice.purpose">
+        </div>
+        
+        <div class="form-field">
+            <label>Amount</label>
+            <input name="price" [(ngModel)]="newinvoice.price">
+        </div>
+
+        <div style="display: flex">
+            <button type="submit" class="submitbutton" (click)="formsubmit()">Create invoice</button>
+            <a routerLink="/"> View all invoices </a>
+        </div>
+        
+    </form>
+</div>

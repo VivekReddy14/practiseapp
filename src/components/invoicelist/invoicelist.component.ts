@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceService } from '../services/invoice.service';
+import { InvoiceService } from '../../services/invoice.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './invoicelist.component.html',
+  styleUrls: ['./invoicelist.component.css']
 })
-export class AppComponent implements OnInit {
+export class InvoicelistComponent implements OnInit {
   
   constructor(private _invoiceService: InvoiceService) {}
 
