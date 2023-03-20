@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Creating a service to make API calls to my backend service and 
+// making this injectable so that other comonents can access the data using dependency injection 
+
 @Injectable()
 
 export class InvoiceService {
