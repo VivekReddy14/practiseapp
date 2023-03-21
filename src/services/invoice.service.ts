@@ -10,7 +10,7 @@ import { Invoiceformdata } from '../components/newinvoice/newinvoice.component'
 
 export class InvoiceService {
     
-    baseurl = "https://invoicepay.onrender.com//";
+    baseurl = "https://invoicepay.onrender.com/";
 
     constructor(private http: HttpClient) {}
 
