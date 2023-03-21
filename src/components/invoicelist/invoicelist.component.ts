@@ -23,7 +23,9 @@ export class InvoicelistComponent implements OnInit {
   statusMap = [
     "Payment Pending",
     "Payment done",
-    "Payment link expired"
+    "Payment link expired",
+    "Refund inititated",
+    "Refund completed",
   ]
 
   filterindexselected = 0;

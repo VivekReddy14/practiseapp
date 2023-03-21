@@ -1,0 +1,25 @@
+<div class="InvoiceFilter" style="margin-top: 20px">
+    <button class="Filterbuttons" *ngFor="let filter of filters; index as i; " (click)="filterClickFunction(i)" [ngClass]="{'ActiveFilter': i === filterindexselected}">
+      {{filter}}
+    </button>
+  </div>
+  <div class="InvoiceList">
+    <div class="InvoiceHeaderContainer">
+        <div class="InvoiceHeaders">Item</div>
+        <div class="InvoiceHeaders">Purpose</div>
+        <div class="InvoiceHeaders">Status</div>
+        <div class="InvoiceHeaders" style="margin-top: 20px;">Amount</div>
+    </div>
+    <div *ngFor = "let invoice of getfilteredinvoices()" style="display: flex; background-color: #d9e9fa;">  
+      <div class="InvoiceHeaders">{{invoice.item}}</div>
+      <div class="InvoiceHeaders">{{invoice.purpose}}</div>
+      <div class="InvoiceHeaders">{{statusMap[invoice.status - 1]}}</div>  
+      <div class="InvoiceHeaders" >
+        <button  class="PayButton" (click)="raiserefund(invoice)" *ngIf="invoice.status === 2"> Raise refund for {{invoice.price}} </button>
+        <p *ngIf="invoice.status === 4 || invoice.status === 5">Amount of {{invoice.price}} refunded</p>
+      </div>
+    </div>
+    <div style="display: flex; margin-top:20px">
+        <a routerLink="/"> View all invoices </a>
+    </div>
+  </div>

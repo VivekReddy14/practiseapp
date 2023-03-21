@@ -26,4 +26,7 @@ export class InvoiceService {
         return this.http.post<any>(this.baseurl+'invoice/createinvoice', invoicedata)
     }
 
+    raiserefundwithinvoiceid(refunddata:any) {
+        return this.http.post<any>(this.baseurl+'payment/initiateRefund', refunddata)
+    }
 }

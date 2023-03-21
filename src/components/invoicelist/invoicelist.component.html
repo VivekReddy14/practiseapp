@@ -3,29 +3,37 @@
     <p style="font-size: 32px">
       Pay your bills!
     </p>
-    <a routerLink="/newinvoice"> Create new invoice</a>
+    <div class="navbuttons">
+      <a routerLink="/newinvoice" style="margin-right: 16px"> New invoice</a>
+      <a routerLink="/refunds"> View refunds</a>
+    </div>
   </div>
-    <div class="InvoiceFilter">
-      <button class="Filterbuttons" *ngFor="let filter of filters; index as i; " (click)="filterClickFunction(i)" [ngClass]="{'ActiveFilter': i === filterindexselected}">
-        {{filter}}
-      </button>
+  <div class="InvoiceFilter">
+    <button class="Filterbuttons" *ngFor="let filter of filters; index as i; " (click)="filterClickFunction(i)" [ngClass]="{'ActiveFilter': i === filterindexselected}">
+      {{filter}}
+    </button>
+  </div>
+  <div class="InvoiceList">
+    <div class="InvoiceHeaderContainer">
+        <div class="InvoiceHeaders">Item</div>
+        <div class="InvoiceHeaders">Purpose</div>
+        <div class="InvoiceHeaders">Status</div>
+        <div style="margin-top: 20px;">Amount</div>
     </div>
-    <div class="InvoiceList">
-      <div class="InvoiceHeaderContainer">
-          <div class="InvoiceHeaders">Item</div>
-          <div class="InvoiceHeaders">Purpose</div>
-          <div class="InvoiceHeaders">Status</div>
-          <div style="margin-top: 20px;">Amount</div>
-      </div>
-      <div *ngFor = "let invoice of getfilteredinvoices()" style="display: flex; background-color: #d9e9fa;">  
-        <div class="InvoiceHeaders">{{invoice.item}}</div>
-        <div class="InvoiceHeaders">{{invoice.purpose}}</div>
-        <div class="InvoiceHeaders">{{statusMap[invoice.status - 1]}}</div>
-        <div style="align-items: center; display: flex;" >
-          <button class="PayButton" *ngIf="invoice.status === 1" (click)="paymentFunction(invoice)">Pay {{invoice.price}}</button>
-          <p *ngIf="invoice.status === 2">Paid {{invoice.price}}</p>
-          <p *ngIf="invoice.status === 3">Payment expired</p>
-        </div>      
-      </div>
+    <div *ngFor = "let invoice of getfilteredinvoices()" style="display: flex; background-color: #d9e9fa;">  
+      <div class="InvoiceHeaders">{{invoice.item}}</div>
+      <div class="InvoiceHeaders">{{invoice.purpose}}</div>
+      <div class="InvoiceHeaders">{{statusMap[invoice.status - 1]}}</div>
+      <div style="align-items: center; display: flex;" >
+        <button class="PayButton" *ngIf="invoice.status === 1" (click)="paymentFunction(invoice)">Pay {{invoice.price}}</button>
+        <div *ngIf="invoice.status === 2">
+          <span >Paid {{invoice.price}} </span> <br />
+          <span *ngIf=" invoice.paymentmeta.conveniencefees > 0"> Convenience fees {{invoice.paymentmeta.conveniencefees}}</span>
+        </div>
+        <p *ngIf="invoice.status === 3">Payment expired</p>
+        <p *ngIf="invoice.status === 4">Refund Inititated</p>
+        <p *ngIf="invoice.status === 5">Refund completed</p>
+      </div>      
     </div>
+  </div>
 </div>

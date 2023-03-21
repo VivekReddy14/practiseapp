@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { InvoiceService } from '../services/invoice.service';
 import { InvoicelistComponent } from '../components/invoicelist/invoicelist.component';
 import { NewinvoiceComponent } from '../components/newinvoice/newinvoice.component';
+import { RefundComponent } from '../components/refund/refund.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InvoicelistComponent,
     NewinvoiceComponent,
+    RefundComponent,
   ],
   imports: [
     BrowserModule,
