@@ -1,0 +1,25 @@
+<div class="parent-container">
+    
+    <div class="login-container">
+        <h1>Login</h1>
+        <form #useForm="ngForm">
+            
+            <div class="form-field">
+                <label >Username</label>
+                <input name="username" [(ngModel)]="username">
+            </div>
+            
+            <div class="form-field">
+                <label>Password</label>
+                <input name="password" [(ngModel)]="password">
+            </div>
+            
+            <div style="display: flex">
+                <button type="submit" class="submitbutton" (click)="formsubmit()">Login</button>
+                <a routerLink="/"> New user </a>
+            </div>
+            
+        </form>
+    </div>
+    
+</div>
